@@ -1,0 +1,19 @@
+.wp-marquee-ticker-pro-container {
+    padding: 12px;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.wp-marquee-ticker-pro {
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1.5;
+    padding: 0;
+}
+
+.wp-marquee-ticker-pro a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
