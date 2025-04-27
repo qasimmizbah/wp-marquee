@@ -8,11 +8,31 @@
 }
 
 .nav-tab-wrapper {
-    margin: 20px 0 30px;
+    margin: 20px 0 10px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-tab {
+    padding: 8px 15px;
+    margin-right: 5px;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    text-decoration: none;
+    color: #555;
+}
+
+.nav-tab-active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    color: #000;
 }
 
 .tab-content {
     display: none;
+    padding: 20px 0;
 }
 
 .tab-content.active {
@@ -26,6 +46,15 @@
 
 .color-field {
     width: 100px !important;
+}
+
+.wp-picker-container {
+    vertical-align: middle;
+}
+
+.wp-picker-holder {
+    position: absolute;
+    z-index: 100;
 }
 
 input[type="number"] {
@@ -55,4 +84,53 @@ h2 {
     margin-top: 30px;
     padding-bottom: 5px;
     border-bottom: 1px solid #ddd;
+}
+
+.description {
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+label {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+span {
+    margin-left: 5px;
+}
+/* Color picker wrapper */
+.color-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+/* Color picker input */
+.color-field {
+    width: 100px !important;
+}
+
+/* Clear button */
+.clear-color {
+    height: 30px;
+    line-height: 28px;
+}
+
+/* Marquee item groups */
+.marquee-item-group {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.marquee-item-group input {
+    flex: 1;
+    max-width: 300px;
 }
