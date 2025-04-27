@@ -1,6 +1,5 @@
 === WP Marquee Ticker ===
 Contributors: Mizbahuddin Qasim
-Donate link: https://example.com/donate
 Tags: marquee, ticker, announcement, banner
 Requires at least: 5.2
 Tested up to: 6.0
