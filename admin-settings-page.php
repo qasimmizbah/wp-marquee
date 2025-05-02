@@ -175,12 +175,13 @@ function wp_marquee_ticker_header_enable_render() {
     ));
     ?>
     <label>
-        <input type="radio" name="wp_marquee_ticker_settings[header_marquee_enable]" 
+    <input type="radio" name="wp_marquee_ticker_settings[header_marquee_enable]" 
                value="1" <?php checked($options['header_marquee_enable'] ?? 1, 1); ?>>
         <?php _e('Enable', 'wp-marquee-ticker'); ?>
+        
     </label>
     <label style="margin-left: 15px;">
-        <input type="radio" name="wp_marquee_ticker_settings[header_marquee_enable]" 
+    <input type="radio" name="wp_marquee_ticker_settings[header_marquee_enable]" 
                value="0" <?php checked($options['header_marquee_enable'] ?? 1, 0); ?>>
         <?php _e('Disable', 'wp-marquee-ticker'); ?>
     </label>
@@ -358,9 +359,14 @@ function wp_marquee_ticker_settings_validate($input) {
     }
     
     // Header options
-    $output['header_marquee_enable'] = isset($input['header_marquee_enable']) ? 1 : 0;
-    $output['header_marquee_position'] = in_array($input['header_marquee_position'] ?? 'before', array('before', 'after')) ? 
-        $input['header_marquee_position'] : 'before';
+    //$output['header_marquee_enable'] = isset($input['header_marquee_enable']) ? 0 : 1;
+    $output['header_marquee_enable'] = isset($input['header_marquee_enable']) ? (int) $input['header_marquee_enable'] : 0;
+    
+    
+        $output['header_marquee_position'] = isset($input['header_marquee_position']) && 
+        in_array($input['header_marquee_position'], ['before', 'after'], true) 
+        ? sanitize_text_field($input['header_marquee_position']) 
+        : 'before';
     
     // Color options
     $output['bg_color'] = sanitize_hex_color($input['bg_color'] ?? '#ffffff');

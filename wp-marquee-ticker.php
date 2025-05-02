@@ -49,9 +49,15 @@ function wp_marquee_ticker_init() {
         'header_marquee_position' => 'before'
     ));
     
+    // if (isset($options['header_marquee_enable']) && $options['header_marquee_enable']) {
+    //     $hook = isset($options['header_marquee_position']) && $options['header_marquee_position'] === 'after' ? 
+    //         'wp_footer' : 'wp_body_open';
+    //     add_action($hook, 'wp_marquee_ticker_display_header');
+    // }
+
     if (isset($options['header_marquee_enable']) && $options['header_marquee_enable']) {
         $hook = isset($options['header_marquee_position']) && $options['header_marquee_position'] === 'after' ? 
-            'wp_footer' : 'wp_body_open';
+            'the_content' : 'wp_body_open';
         add_action($hook, 'wp_marquee_ticker_display_header');
     }
 }
@@ -91,7 +97,7 @@ function wp_marquee_ticker_display_header() {
     $font_size = esc_attr($options['font_size'] ?? '14');
     $font_weight = esc_attr($options['font_weight'] ?? 'normal');
     $direction = esc_attr($options['direction'] ?? 'left');
-    $scroll_delay = esc_attr($options['scroll_delay'] ?? '85');
+    $scroll_delay = esc_attr($options['scroll_delay'] ?? '1');
     
     echo '<div class="wp-marquee-ticker-container" style="background-color: ' . $bg_color . '; color: ' . $font_color . '; 
         font-size: ' . $font_size . 'px; font-weight: ' . $font_weight . ';">';
@@ -104,12 +110,17 @@ function wp_marquee_ticker_display_header() {
 /**
  * Shortcode to display marquee ticker
  */
+
 function wp_marquee_ticker_shortcode($atts) {
+    
     $options = get_option('wp_marquee_ticker_settings', array(
         'header_marquee_enable' => 1,
         'header_marquee_position' => 'before'
     ));
     
+
+    echo $options['header_marquee_enable']."QAS";
+
     $marquee_items = array();
     for ($i = 1; $i <= 5; $i++) {
         if (!empty($options['marquee_text_' . $i])) {
